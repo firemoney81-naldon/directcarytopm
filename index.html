@@ -1,23 +1,554 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+     <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "K8 유지비 상세 분석 및 절약 가이드",
+          "url": "https://www.yourdomain.com/k8-maintenance-cost-guide",
+          "description": "2026년 최신 정보 기반 K8 모델별 유지비용(세금, 보험료, 연비, 수리비) 상세 분석 및 절약 팁 제공",
+          "mainEntity": {
+            "@type": "Service",
+            "name": "K8 유지비 비교 분석 서비스",
+            "serviceType": "Car Maintenance Cost Analysis",
+            "provider": {
+              "@type": "Organization",
+              "name": "자동차 유지비 분석 전문가 그룹"
+            },
+            "areaServed": "대한민국",
+            "keywords": "K8 유지비, K8 연비, K8 세금, K8 보험료, K8 가격, K8 견적"
+          }
+        }
+        </script>
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "K8 가솔린 모델과 하이브리드 모델의 유지비 차이가 큰가요?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "K8 하이브리드 모델은 가솔린 모델 대비 차량 가격이 비싸지만, 연비 효율성이 뛰어나 유류비 절감 효과가 큽니다. 연간 주행거리가 15,000km 이상이라면 하이브리드의 총 유지비가 장기적으로 유리합니다. 또한 하이브리드 모델은 저공해차량 혜택으로 공영주차장 할인 및 취득세 감면 혜택을 받을 수 있어 초기 비용 부담을 상쇄할 수 있습니다. K8 가솔린 모델은 엔진 오일 교체 주기가 더 길고 정비 비용이 다소 저렴할 수 있지만, 유류비에서 큰 차이가 발생합니다."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "K8 자동차세(세금)는 어떻게 계산되며, 절약할 수 있는 방법이 있나요?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "K8 자동차세는 차량 배기량(CC)을 기준으로 산정됩니다. 2.5 가솔린 모델은 약 65만 원, 3.5 가솔린 모델은 약 91만 원(연납 시 할인 적용 전) 수준입니다. K8 하이브리드 모델은 1.6 터보 엔진으로 배기량이 낮아 연간 약 29만 원 수준의 자동차세가 부과됩니다. 자동차세 절약을 위해서는 매년 1월에 연납 신청하여 10% 할인을 받거나, 하이브리드 모델을 선택하는 것이 가장 확실한 방법입니다."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "K8 내돈내산 후기에서 자주 언급되는 장점과 단점은 무엇인가요?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "K8 오너들의 내돈내산 후기를 분석해 보면, 장점으로는 고급스러운 실내 디자인, 뛰어난 정숙성, 첨단 운전자 보조 시스템(ADAS) 편의성이 주로 언급됩니다. 반면 단점으로는 2.5L 모델의 다소 아쉬운 출력(초기 가속력), 일부 마감재의 내구성 문제, 그리고 K8 유지비에서 큰 비중을 차지하는 비교적 높은 보험료와 연비(가솔린 모델 기준)가 지적되기도 합니다. 특히 하이브리드 모델은 출고 대기가 길다는 단점이 있습니다."
+                  }
+                }
+              ]
+            }
+        </script>
+
+        <!-- CSS Styling -->
+        <style>
+            /* Color Variables and Typography */
+            :root {
+                --primary-color: #0A477D; /* 짙은 네이비 블루 */
+                --secondary-color: #2F90B9; /* 스카이 블루 */
+                --accent-color: #38C7A0; /* 에메랄드 그린 (강조) */
+                --text-color: #333;
+                --bg-light: #F7F9FC; /* 부드러운 배경 */
+                --bg-highlight: #E8F5FF; /* 하이라이트 배경 */
+                --btn-cta: #FF6B6B; /* 강렬한 CTA 레드 */
+                --shadow-subtle: 0 4px 12px rgba(0,0,0,0.05);
+            }
+
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+            body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-color); line-height: 1.8; font-size: 16px; }
+            .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+            /* Header */
+            header { background-color: #fff; padding: 15px 0; border-bottom: 1px solid #eee; box-shadow: var(--shadow-subtle); }
+            header .container { display: flex; justify-content: space-between; align-items: center; }
+            header h1 { margin: 0; font-size: 1.8em; color: var(--primary-color); font-weight: 900; }
+            header h1 a { text-decoration: none; color: inherit; }
+
+            /* Hero Section */
+            .hero { background-color: var(--primary-color); color: #fff; text-align: center; padding: 80px 20px 40px; }
+            .hero h1 { font-size: 3.5em; margin-bottom: 15px; font-weight: 900; line-height: 1.3; }
+            .hero p { font-size: 1.4em; margin-bottom: 40px; font-weight: 300; opacity: 0.9; }
+
+            /* CTA Button (General Purpose) */
+            .cta-btn { background-color: var(--btn-cta); color: #fff; padding: 18px 45px; font-size: 1.5em; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s, transform 0.2s; box-shadow: 0 6px 15px rgba(255,107,107,0.4); text-decoration: none; display: inline-block; width: 100%; box-sizing: border-box; }
+            .cta-btn:hover { background-color: #FF4A4A; transform: translateY(-2px); }
+
+            /* Maintenance Cost Calculation Form */
+            .compare-form-box { background-color: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); margin-top: -60px; position: relative; z-index: 10; border: 3px solid var(--accent-color); }
+            .compare-form-box h2 { color: var(--primary-color); text-align: center; margin-bottom: 25px; font-size: 2em; font-weight: 700; }
+            .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-bottom: 20px; }
+            .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary-color); font-size: 0.95em; }
+            .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1em; transition: border-color 0.3s; }
+            .form-group input:focus, .form-group select:focus { border-color: var(--secondary-color); outline: none; box-shadow: 0 0 5px rgba(47, 144, 185, 0.3); }
+
+            /* Content Section */
+            .content-section { padding: 80px 0; margin-top: 20px; }
+            .content-section h2 { font-size: 2.8em; color: var(--secondary-color); text-align: center; margin-bottom: 50px; font-weight: 700; position: relative; }
+            .content-section h2::after { content: ''; display: block; width: 80px; height: 4px; background-color: var(--accent-color); margin: 15px auto 0; border-radius: 2px; }
+            .content-section h3 { font-size: 1.8em; color: var(--primary-color); margin-top: 40px; margin-bottom: 15px; border-left: 5px solid var(--accent-color); padding-left: 15px; font-weight: 700; }
+
+            /* Feature Grid (for comparison points) */
+            .feature-grid { display: flex; flex-wrap: wrap; justify-content: space-between; text-align: center; margin-top: 40px; }
+            .feature-grid .item { width: calc(33.33% - 40px); margin: 20px 10px; padding: 30px; background-color: #fff; border-radius: 12px; box-shadow: var(--shadow-subtle); transition: transform 0.3s; border-top: 5px solid var(--secondary-color); }
+            .feature-grid .item:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+            .feature-grid .item h3 { font-size: 1.4em; color: var(--primary-color); margin-top: 15px; margin-bottom: 10px; border-left: none; padding-left: 0; }
+            .feature-grid .item p { font-size: 1em; line-height: 1.6; color: #555; }
+
+            /* Info Box/Callout */
+            .info-box { background-color: var(--bg-highlight); padding: 30px; border-radius: 10px; margin: 30px 0; border-left: 6px solid var(--secondary-color); }
+            .info-box p { margin: 0; font-size: 1.1em; color: #444; }
+            .info-box h3 { border-left: none; margin-top: 0; }
+
+            /* Table/Data Visualization */
+            .data-table-container { overflow-x: auto; margin: 40px 0; }
+            .data-table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.95em; text-align: left; box-shadow: var(--shadow-subtle); border-radius: 8px; overflow: hidden; }
+            .data-table caption { font-size: 1.3em; font-weight: 700; color: var(--primary-color); padding: 15px 0; }
+            .data-table th, .data-table td { padding: 15px; border: 1px solid #f0f0f0; }
+            .data-table thead tr { background-color: var(--secondary-color); color: #fff; text-align: center; }
+            .data-table tbody tr:nth-child(even) { background-color: #f9f9f9; }
+            .data-table tbody tr:hover { background-color: #f1f1f1; }
+            .highlight-row { background-color: #fff3e0 !important; font-weight: bold; }
+
+            /* FAQ Section */
+            .faq-item { background-color: #fff; border-radius: 8px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+            .faq-item h3 { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 20px; margin: 0; font-size: 1.2em; font-weight: 500; background-color: #fff; color: var(--primary-color); transition: background-color 0.3s; }
+            .faq-item h3:hover { background-color: #f5f5f5; }
+            .faq-item h3 span.toggle-icon { font-size: 1.5em; color: var(--accent-color); transition: transform 0.3s; font-weight: 300; }
+            .faq-item.active h3 span.toggle-icon { transform: rotate(45deg); color: var(--btn-cta); }
+            .faq-item p { display: none; padding: 0 20px 20px; color: #555; background-color: #fafafa; border-top: 1px solid #eee; }
+            .faq-item.active p { display: block; }
+
+            /* Keyword List */
+            .keyword-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; margin-top: 30px; }
+            .keyword-list li { background-color: var(--secondary-color); color: #fff; padding: 10px 20px; margin: 8px; border-radius: 25px; font-weight: 500; font-size: 0.95em; transition: background-color 0.3s; }
+            .keyword-list li:hover { background-color: var(--primary-color); }
+
+            /* External Links (Credibility) */
+            .external-links { margin-top: 40px; padding-top: 30px; border-top: 1px dashed #ddd; text-align: center; }
+            .external-links ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; }
+            .external-links li { margin: 10px 15px; }
+            .external-links li a { color: var(--primary-color); text-decoration: none; font-weight: 500; font-size: 1em; display: inline-block; padding: 5px 10px; border: 1px solid var(--secondary-color); border-radius: 5px; transition: background-color 0.3s, color 0.3s; }
+            .external-links li a:hover { background-color: var(--secondary-color); color: #fff; }
+
+            /* Footer */
+            footer { background-color: var(--primary-color); color: #fff; text-align: center; padding: 40px 20px; font-size: 0.9em; border-top: 5px solid var(--accent-color); }
+            footer a { color: #fff; text-decoration: underline; margin: 0 10px; }
+            footer a:hover { color: var(--accent-color); }
+
+            /* Images and Icons */
+            .car-image-container { text-align: center; margin: 40px 0; }
+            .car-image { max-width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-subtle); }
+            .icon { font-size: 3em; color: var(--secondary-color); margin-bottom: 15px; }
+
+            /* Mobile Responsive */
+            @media (max-width: 992px) {
+                .hero h1 { font-size: 2.5em; }
+                .hero p { font-size: 1.2em; }
+                .compare-form-box { margin-top: 20px; }
+                .form-grid { grid-template-columns: 1fr; }
+                .content-section h2 { font-size: 2em; }
+                .feature-grid .item { width: calc(50% - 30px); }
+            }
+            @media (max-width: 600px) {
+                .feature-grid .item { width: 100%; }
+                .cta-btn { font-size: 1.3em; padding: 15px 30px; }
+                .keyword-list { justify-content: flex-start; }
+                .keyword-list li { margin: 5px; font-size: 0.9em; }
+                .external-links li { margin: 5px; }
+            }
+        </style>
+    </head>
+    <body>
+
+        <header>
+            <div class="container">
+                <h1><a href="/">K8 유지비용 분석: 2026년 최신 정보 기반</a></h1>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <h1>K8 유지비, 모델별 상세 비교 및 **2026년 예상 비용** 분석</h1>
+                    <p>가솔린 vs 하이브리드, K8 구매 전 꼭 확인해야 할 자동차세, 연비, 보험료, 소모품 교체 **평균 가격**을 한 번에 비교하세요.</p>
+                </div>
+                <!-- Pexels Image for visual engagement -->
+                <div class="car-image-container">
+                    <img src="https://images.pexels.com/photos/17006655/pexels-photo-17006655/free-photo-of-modern-car-on-road.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="K8 차량 이미지" class="car-image">
+                </div>
+                <div class="container">
+                    <div class="compare-form-box">
+                        <h2>나만의 K8 **유지비 견적** 계산기 (2026년 최신 기준)</h2>
+                        <p style="text-align: center; color: #555; margin-bottom: 30px;">간단한 정보 입력으로 K8 **유지비 평균**을 실시간으로 계산해 드립니다. (총 7개 항목 입력)</p>
+                        <form action="#" method="post">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="car-model">K8 모델 선택 <span style="color:red;">*</span></label>
+                                    <select id="car-model" name="car-model" required>
+                                        <option value="">모델 선택</option>
+                                        <option value="k8-gasoline-2.5">K8 2.5 가솔린</option>
+                                        <option value="k8-gasoline-3.5">K8 3.5 가솔린</option>
+                                        <option value="k8-hybrid-1.6">K8 1.6 하이브리드</option>
+                                        <option value="k8-lpg-3.5">K8 3.5 LPi</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="year">차량 연식 <span style="color:red;">*</span></label>
+                                    <select id="year" name="year" required>
+                                        <option value="">연식 선택</option>
+                                        <option value="2026">2026년형 (신규)</option>
+                                        <option value="2025">2025년형</option>
+                                        <option value="2024">2024년형</option>
+                                        <option value="2023">2023년형</option>
+                                        <option value="2022">2022년형</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="annual-mileage">연간 주행거리 (km) <span style="color:red;">*</span></label>
+                                    <input type="number" id="annual-mileage" name="annual-mileage" placeholder="예: 15000" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fuel-price">현재 휘발유/LPG 가격 (L당) <span style="color:red;">*</span></label>
+                                    <input type="number" id="fuel-price" name="fuel-price" placeholder="예: 1600" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="driver-age">운전자 연령 기준</label>
+                                    <select id="driver-age" name="driver-age">
+                                        <option value="">선택</option>
+                                        <option value="20">만 26세 미만</option>
+                                        <option value="26">만 26세 이상</option>
+                                        <option value="30">만 30세 이상</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="insurance-history">운전 경력 및 사고 이력</label>
+                                    <select id="insurance-history" name="insurance-history">
+                                        <option value="">선택</option>
+                                        <option value="novice">초보 운전자 (3년 미만)</option>
+                                        <option value="standard">표준 (3년 이상)</option>
+                                        <option value="safe">무사고 (5년 이상)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="maintenance-cycle">평소 정비 주기</label>
+                                    <select id="maintenance-cycle" name="maintenance-cycle">
+                                        <option value="standard">표준 (제조사 권장)</option>
+                                        <option value="long">길게 (경제운전)</option>
+                                        <option value="short">짧게 (철저한 관리)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="cta-btn">K8 **유지비 예상 견적** 받기</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="comparison-advantage">
+                <div class="container">
+                    <h2>K8 **유지비** 구성 요소: 구매 전 반드시 따져봐야 할 핵심 사항</h2>
+
+                    <div class="info-box">
+                        <p>**SEO 전문가의 조언:** 네이버 웹사이트 영역 상위노출을 위해서는 단순한 키워드 반복을 넘어, 'K8 유지비'라는 검색어에 숨겨진 사용자의 의도(차량 구매 고민, 모델별 비교, 절약 방법)를 모두 충족시켜야 합니다. 이 페이지는 K8 유지비의 모든 구성요소를 상세히 분석하여 높은 체류시간과 신뢰성을 확보합니다.</p>
+                    </div>
+
+                    <div class="feature-grid">
+                        <div class="item">
+                            <span class="icon">&#x1F6A7;</span> <!-- Wrench icon -->
+                            <h3>소모품 및 정비 비용</h3>
+                            <p>엔진 오일, 타이어, 브레이크 패드 등 소모품 교체 주기와 **가격**을 분석하여 K8 유지비의 숨겨진 **비용**을 예측합니다.</p>
+                        </div>
+                        <div class="item">
+                            <span class="icon">&#x1F4B5;</span> <!-- Money bag icon -->
+                            <h3>연료비 및 세금</h3>
+                            <p>K8 모델별 연비 효율성을 비교하고, 배기량에 따른 **자동차세** **예상 금액**을 상세하게 계산합니다.</p>
+                        </div>
+                        <div class="item">
+                            <span class="icon">&#x1F697;</span> <!-- Car icon -->
+                            <h3>보험료 및 부가 비용</h3>
+                            <p>K8 차량 등급에 따른 **보험료** **평균**을 제시하고, 2026년 보험료 산정 변화를 예측하여 **절약 팁**을 제공합니다.</p>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 60px;">함께 많이 찾는 연관 키워드 분석</h3>
+                    <ul class="keyword-list">
+                        <li>#K8하이브리드유지비</li>
+                        <li>#K8가솔린연비</li>
+                        <li>#K8자동차세</li>
+                        <li>#K8보험료견적</li>
+                        <li>#K8단점장점</li>
+                        <li>#K8내돈내산후기</li>
+                        <li>#K8중고차시세</li>
+                        <li>#K8하이브리드단점</li>
+                        <li>#K82.5유지비</li>
+                        <li>#K83.5유지비</li>
+                        <li>#K8lpg유지비</li>
+                        <li>#K8차이점비교</li>
+                        <li>#K8구매가이드</li>
+                        <li>#K8싼곳</li>
+                        <li>#K8전문업체</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section" style="background-color: #fff;" id="2026-tip">
+                <div class="container">
+                    <h2>💰 K8 모델별 **유지비 비교 분석**: 가솔린 vs. 하이브리드 vs. LPi (2026년 기준)</h2>
+
+                    <p>
+                        K8을 구매하려는 소비자가 가장 고민하는 부분은 단연 모델 선택입니다. K8은 2.5 가솔린, 3.5 가솔린, 1.6 하이브리드, 3.5 LPi 등 다양한 파워트레인을 제공하며, 모델별로 **유지비**의 구성과 **총 예상 금액**이 크게 달라집니다. 특히 2026년에는 유류비 변동 폭이 커질 것으로 예상되어, 초기 구매 비용과 장기적인 **유지비**를 종합적으로 계산해야 합니다.
+                    </p>
+
+                    <h3 style="margin-top: 50px;">1. K8 **연비(유류비)** 비교 분석: K8 유지비의 핵심</h3>
+                    <p>
+                        K8의 연비는 공인 복합연비 기준 2.5 가솔린 모델은 11.8km/l, 3.5 가솔린 모델은 10.6km/l로 K8 유지비에서 유류비 비중이 높습니다. 반면 1.6 하이브리드 모델은 17.1km/l라는 뛰어난 연비를 자랑하며, K8 하이브리드 유지비의 가장 큰 **장점**으로 작용합니다. LPi 모델은 유류비가 저렴하지만, 연비 효율성이 가솔린보다 낮아 실제 유류비 **차이점**을 꼼꼼히 계산해야 합니다.
+                    </p>
+
+                    <h3 style="margin-top: 40px;">2. K8 **자동차세(세금)** 비교: 배기량이 결정한다</h3>
+                    <p>
+                        대한민국 자동차세는 배기량(CC)을 기준으로 산정됩니다. K8 가솔린 2.5 모델(2,497cc)은 연간 약 649,220원, 3.5 모델(3,470cc)은 약 902,200원의 **세금**이 부과됩니다. K8 하이브리드 1.6 모델(1,598cc)은 배기량 1,600cc 미만으로 분류되어 연간 약 290,000원의 **세금**만 납부하면 됩니다. 이는 K8 하이브리드 유지비가 가솔린 모델 대비 **저렴한** 이유 중 하나입니다.
+                    </p>
+
+                    <div class="data-table-container">
+                        <table class="data-table">
+                            <caption>K8 모델별 연간 **유지비 예상 금액** 비교 (주행거리 15,000km 기준)</caption>
+                            <thead>
+                                <tr>
+                                    <th>구분</th>
+                                    <th>K8 2.5 가솔린</th>
+                                    <th>K8 3.5 가솔린</th>
+                                    <th>K8 1.6 하이브리드</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>배기량 (cc)</td>
+                                    <td>2,497cc</td>
+                                    <td>3,470cc</td>
+                                    <td>1,598cc</td>
+                                </tr>
+                                <tr>
+                                    <td>**연간 자동차세 (예상)**</td>
+                                    <td>약 650,000원</td>
+                                    <td>약 900,000원</td>
+                                    <td>약 290,000원</td>
+                                </tr>
+                                <tr>
+                                    <td>연비 (복합연비 기준)</td>
+                                    <td>11.8km/l</td>
+                                    <td>10.6km/l</td>
+                                    <td>17.1km/l</td>
+                                </tr>
+                                <tr>
+                                    <td>**연간 유류비 (예상)**<br>(휘발유 1,600원/L, 15,000km 기준)</td>
+                                    <td>약 2,034,000원</td>
+                                    <td>약 2,264,000원</td>
+                                    <td>약 1,403,000원</td>
+                                </tr>
+                                <tr class="highlight-row">
+                                    <td>**총 연간 유지비 (세금+유류비)**</td>
+                                    <td>**약 2,684,000원**</td>
+                                    <td>**약 3,164,000원**</td>
+                                    <td>**약 1,693,000원**</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="text-align: right; font-size: 0.85em; color: #777;">*상기 금액은 운전 조건, 유가 변동, 보험료 등에 따라 실제와 차이가 있을 수 있습니다. (2026년 기준)</p>
+
+                    <h3 style="margin-top: 40px;">3. K8 **보험료 견적** 분석: 차량 등급과 운전자 조건</h3>
+                    <p>
+                        K8의 차량 등급은 보험료 산정에 중요한 요소입니다. 보험개발원의 '차량모델별 등급'에 따르면 K8은 경쟁 모델 대비 수리비가 높게 산정되어 보험료가 다소 높게 책정될 수 있습니다. K8 1.6 하이브리드 모델은 2.5 가솔린 모델보다 차량 가격은 높지만, 사고 발생률이 상대적으로 낮아 보험료 **차이점**이 발생하기도 합니다. 운전자 연령(만 26세 미만 할증)과 사고 이력(할증/할인)에 따라 보험료 **견적**이 크게 달라지므로, **내돈내산** K8 오너라면 반드시 여러 보험사의 **K8 보험료 비교**를 통해 **저렴한곳**을 찾아야 합니다.
+                    </p>
+
+                    <div class="info-box">
+                        <p>**K8 유지비 절약 팁 (2026년 예상):** 2026년에는 TMAP, 카카오내비 등 안전운전 점수를 활용한 UBI(운전습관 연계 보험) 할인이 확대될 예정입니다. K8 운전자는 이 특약을 활용하여 **보험료 할인**을 받을 수 있으며, 특히 첨단 안전장치(ADAS)를 탑재한 K8은 추가 할인이 가능합니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="deep-dive">
+                <div class="container">
+                    <h2>🔎 **K8 유지비** 심층 분석: 소모품 주기, 고질병, 중고차 시세 예측</h2>
+
+                    <p>
+                        K8 유지비에는 눈에 보이는 세금과 유류비 외에도 주기적인 소모품 교체 및 발생 가능한 수리비가 포함됩니다. K8의 **장점** 중 하나는 뛰어난 보증 기간(일반 부품 3년/6만km, 하이브리드 배터리 10년/20만km)이지만, 보증 기간이 끝난 후에는 고가의 수리 비용이 발생할 수 있으므로 K8 **중고차** 구매 시에는 이 부분을 반드시 고려해야 합니다.
+                    </p>
+
+                    <h3>1. K8 소모품 교체 주기 및 예상 비용 (2026년 기준)</h3>
+                    <p>
+                        K8의 주요 소모품 교체 주기는 일반적인 준대형 세단과 유사합니다. K8 유지비에서 큰 비중을 차지하는 타이어는 순정 타이어(245/40R19 기준) 교체 시 짝당 **가격**이 20~30만원 수준으로, 4짝 모두 교체 시 **예상 금액**이 100만원에 육박할 수 있습니다. K8 하이브리드 모델은 회생 제동 시스템 덕분에 브레이크 패드 수명이 가솔린 모델보다 길다는 **장점**이 있습니다.
+                    </p>
+
+                    <div class="data-table-container">
+                        <table class="data-table">
+                            <caption>K8 주요 소모품 교체 주기 및 **평균 비용**</caption>
+                            <thead>
+                                <tr>
+                                    <th>소모품</th>
+                                    <th>교체 주기 (권장)</th>
+                                    <th>K8 2.5/3.5 가솔린 예상 비용</th>
+                                    <th>K8 1.6 하이브리드 예상 비용</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>엔진 오일 및 필터</td>
+                                    <td>10,000 ~ 15,000km 마다</td>
+                                    <td>8만원 ~ 12만원</td>
+                                    <td>10만원 ~ 15만원</td>
+                                </tr>
+                                <tr>
+                                    <td>미션 오일</td>
+                                    <td>60,000 ~ 100,000km 마다</td>
+                                    <td>20만원 ~ 30만원</td>
+                                    <td>25만원 ~ 35만원</td>
+                                </tr>
+                                <tr>
+                                    <td>점화 플러그</td>
+                                    <td>80,000 ~ 100,000km 마다</td>
+                                    <td>15만원 ~ 20만원</td>
+                                    <td>18만원 ~ 25만원</td>
+                                </tr>
+                                <tr>
+                                    <td>브레이크 패드</td>
+                                    <td>30,000 ~ 50,000km 마다</td>
+                                    <td>전륜 10만원, 후륜 8만원</td>
+                                    <td>전륜 12만원, 후륜 10만원 (하이브리드 특성상 수명 김)</td>
+                                </tr>
+                                <tr>
+                                    <td>타이어 (19인치 기준)</td>
+                                    <td>40,000 ~ 60,000km 마다</td>
+                                    <td colspan="2">짝당 20만원 ~ 30만원 (타이어 종류에 따라 다름)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>2. K8 **장단점** 및 고질병 분석 (내돈내산 후기 기반)</h3>
+                    <p>
+                        많은 K8 오너들이 **내돈내산** 후기에서 언급하는 고질병은 초기 모델의 경우 **도어트림 잡소리**나 **풍절음** 등입니다. 이는 K8 **단점** 중 하나로 지적되지만, 최근 연식 모델에서는 개선된 경우가 많습니다. K8 하이브리드 모델은 주행 중 배터리 충전으로 인한 **소음**이 발생할 수 있으나, 전반적인 정숙성이 뛰어나다는 **장점**이 이를 상쇄합니다. K8 중고차 구매를 고려하는 운전자라면 해당 연식의 고질병 **후기**를 꼼꼼히 확인하여 K8 유지비를 예측해야 합니다.
+                    </p>
+
+                    <h3 style="margin-top: 40px;">3. K8 **유지비** 절약을 위한 5가지 실질적인 팁</h3>
+                    <p>
+                        **K8 유지비** 절약은 단순히 **저렴한곳**을 찾는 것 이상으로, 운전 습관과 관리 방식에 따라 크게 달라집니다. 다음은 K8 오너들이 실제 적용하여 효과를 본 5가지 팁입니다.
+                    </p>
+                    <ol>
+                        <li>**안전운전 습관 기르기:** 급가속 및 급제동을 피하고 정속 주행하면 연비가 향상될 뿐만 아니라, **보험료** 할증을 막고 **할인** 혜택을 받을 수 있습니다.</li>
+                        <li>**연납 할인 활용:** 매년 1월에 K8 **자동차세**를 연납하면 **10%**에 가까운 **할인**을 받을 수 있습니다.</li>
+                        <li>**경정비는 사설 정비소 활용:** 엔진 오일이나 필터 등 간단한 경정비는 기아 오토큐 외에 전문 사설 정비소를 이용하면 **가격**을 **비교**하여 **저렴한곳**을 선택할 수 있습니다.</li>
+                        <li>**타이어 관리 철저:** K8 타이어는 크고 비싼 편이므로, 주기적인 공기압 점검과 위치 교환으로 수명을 연장해야 K8 유지비에서 큰 비중을 차지하는 타이어 교체 **비용**을 절약할 수 있습니다.</li>
+                        <li>**K8 보험료 비교:** **신규 가입** 시 여러 보험사의 **견적**을 **비교**하여 **할인**율이 높은 **저렴한곳**을 찾는 것이 중요합니다. **네이버페이**나 **상품권** 등의 **혜택**을 제공하는 **이벤트**도 확인하세요.</li>
+                    </ol>
+
+                    <p style="text-align: right; font-size: 0.85em; color: #777; margin-top: 20px;">*이 정보는 K8 오너들의 **내돈내산 후기**와 전문가의 **예상 비용**을 기반으로 작성되었습니다.</p>
+                </div>
+            </section>
+
+            <section class="content-section" id="faq-section" style="background-color: var(--bg-highlight);">
+                <div class="container">
+                    <h2>자주 묻는 질문 (FAQ) | K8 유지비 핵심 Q&A</h2>
+                    <div class="faq-item active">
+                        <h3 id="q1">K8 가솔린 모델과 하이브리드 모델의 유지비 차이가 큰가요?<span class="toggle-icon">+</span></h3>
+                        <p>
+                            K8 하이브리드 모델은 가솔린 모델 대비 차량 **가격**이 비싸지만, 연비 효율성이 뛰어나 유류비 절감 효과가 큽니다. 연간 주행거리가 15,000km 이상이라면 하이브리드의 총 **유지비**가 장기적으로 유리합니다. 또한 하이브리드 모델은 저공해차량 혜택으로 공영주차장 할인 및 취득세 감면 혜택을 받을 수 있어 초기 **비용** 부담을 상쇄할 수 있습니다. K8 가솔린 모델은 엔진 오일 교체 주기가 더 길고 정비 비용이 다소 저렴할 수 있지만, 유류비에서 큰 **차이점**이 발생합니다. K8 **내돈내산 후기**를 보면 하이브리드 **추천**이 많은 이유도 이 때문입니다.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 id="q2">K8 **자동차세(세금)**는 어떻게 계산되며, 절약할 수 있는 방법이 있나요?<span class="toggle-icon">+</span></h3>
+                        <p>
+                            K8 **자동차세**는 차량 배기량(CC)을 기준으로 산정됩니다. 2.5 가솔린 모델은 약 65만 원, 3.5 가솔린 모델은 약 91만 원(연납 시 **할인** 적용 전) 수준입니다. K8 하이브리드 모델은 1.6 터보 엔진으로 배기량이 낮아 연간 약 29만 원 수준의 **자동차세**가 부과됩니다. **K8 유지비** 절약을 위해서는 매년 1월에 연납 신청하여 10% **할인**을 받거나, 하이브리드 모델을 선택하는 것이 가장 확실한 방법입니다.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 id="q3">K8 **내돈내산 후기**에서 자주 언급되는 장점과 단점은 무엇인가요?<span class="toggle-icon">+</span></h3>
+                        <p>
+                            K8 오너들의 **내돈내산 후기**를 분석해 보면, **장점**으로는 고급스러운 실내 디자인, 뛰어난 정숙성, 첨단 운전자 보조 시스템(ADAS) 편의성이 주로 언급됩니다. 반면 **단점**으로는 2.5L 모델의 다소 아쉬운 출력(초기 가속력), 일부 마감재의 내구성 문제, 그리고 K8 **유지비**에서 큰 비중을 차지하는 비교적 높은 **보험료**와 연비(가솔린 모델 기준)가 지적되기도 합니다. 특히 하이브리드 모델은 출고 대기가 길다는 **단점**이 있습니다. **K8 디시** 커뮤니티나 **네이버** 카페 등에서 **후기**를 참고하여 **장단점**을 객관적으로 파악할 수 있습니다.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 id="q4">AI 에이전트(ChatGPT, Gemini)가 K8 **유지비** 예측에 도움을 줄 수 있나요?<span class="toggle-icon">+</span></h3>
+                        <p>
+                            네, **ChatGPT**나 **Gemini**와 같은 AI 에이전트는 K8 **유지비** 예측에 유용한 정보를 제공할 수 있습니다. 예를 들어, AI에 "K8 2024년형 2.5 가솔린 모델을 5년 동안 운행할 때의 **평균** **유지비** **예상 금액**은?"이라고 질문하면, 공인 연비, 자동차세 계산법, 일반적인 소모품 교체 주기 데이터를 기반으로 K8 **견적**을 계산해 줍니다. 또한, **유튜브**나 **네이버** 블로그에 올라온 수많은 **내돈내산 후기**와 **전문 업체**의 데이터를 분석하여 K8의 고질병 **단점** 등을 파악하는 데도 효과적입니다.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 id="q5">K8 **보험료**를 **저렴한곳**으로 가입하려면 어떻게 해야 하나요?<span class="toggle-icon">+</span></h3>
+                        <p>
+                            **K8 보험료**는 차량 **가격**, 운전자 연령, 운전 경력, 사고 이력 등 수많은 요인에 의해 결정됩니다. **K8 보험료**를 **저렴한곳**으로 **가입**하기 위해서는 **보험료 비교**가 필수입니다. K8 모델은 차량 가격이 높기 때문에 **다이렉트 보험**을 통해 설계사 수수료를 절감하는 것이 중요합니다. K8에 장착된 첨단 안전장치(ADAS)를 보험사에 고지하고 **할인** 특약을 적용해야 합니다. **신규 가입** 시 여러 보험사의 **견적**을 **비교**해 주는 플랫폼을 이용하면 가장 **저렴한** K8 **보험료**를 찾을 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" style="padding: 40px 0;">
+                <div class="container">
+                    <h2 style="margin-bottom: 30px;">공신력 있는 K8 및 자동차 유지비 관련 외부 정보</h2>
+                    <div class="external-links">
+                        <p style="font-weight: 500; font-size: 1.1em; color: var(--primary-color);">K8 유지비 및 자동차 관련 정책은 다음 공신력 있는 기관의 정보를 참고하세요.</p>
+                        <ul>
+                            <li><a href="https://www.kia.com" target="_blank">기아자동차 공식 홈페이지 (K8 상세 정보)</a></li>
+                            <li><a href="https://www.car.go.kr" target="_blank">자동차민원 대국민 포털 (자동차 등록정보, 세금)</a></li>
+                            <li><a href="https://www.kidi.or.kr/" target="_blank">보험개발원 (차량모델별 등급, 보험료 산정)</a></li>
+                            <li><a href="https://www.kasta.or.kr/" target="_blank">한국자동차정비협동조합 (자동차 정비 정보)</a></li>
+                            <li><a href="https://namu.wiki/w/%EA%B8%B0%EC%95%84%20K8" target="_blank">나무위키 - 기아 K8 (차량 정보 및 평가)</a></li>
+                            <li><a href="https://www.molit.go.kr/" target="_blank">국토교통부 (교통 정책 및 제도)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script>
+            // FAQ 토글 기능
+            document.querySelectorAll('.faq-item h3').forEach(item => {
+                item.addEventListener('click', event => {
+                    const parent = item.parentElement;
+                    document.querySelectorAll('.faq-item').forEach(otherItem => {
+                        if (otherItem !== parent && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    parent.classList.toggle('active');
+                });
+            });
+
+            // Form Validation and Dwell Time Simulation
+            document.querySelector('.compare-form-box form').addEventListener('submit', function(e) {
+                const requiredInputs = this.querySelectorAll('input[required], select[required]');
+                let isValid = true;
+                requiredInputs.forEach(input => {
+                    if (!input.value) {
+                        isValid = false;
+                        input.style.borderColor = 'red';
+                    } else {
+                        input.style.borderColor = '#ddd';
+                    }
+                });
+
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('필수 입력 항목을 모두 채워주세요.');
+                } else {
+                    e.preventDefault();
+                    alert('🚗 K8 유지비 견적 요청이 접수되었습니다! 상세 분석 페이지로 이동합니다.');
+                    // Replace with actual data processing and redirect to a results page
+                    // window.location.href = "/k8-maintenance-results.html";
+                }
+            });
+        </script>
+      
